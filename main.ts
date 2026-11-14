@@ -80,7 +80,8 @@ async function waitForDone(): Promise<void> {
 async function main(): Promise<void> {
   const server = createApp();
   await new Promise<void>((resolve, reject) => {
-    server.once('error', reject);
+    // A bind failure used to surface as a bare listen error; name it so the cause is obvious.
+    server.once('error', (err) => reject(new Error(`failed to bind an ephemeral port: ${err.message}`)));
     server.listen(0, () => resolve());
   });
   const address = server.address();
