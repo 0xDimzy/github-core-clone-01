@@ -1,0 +1,14 @@
+{
+  "name": "forge",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Forge: a single-process GitHub-compatible git forge (git smart HTTP v2, REST v3, GraphQL v4, MCP)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "start": "node --experimental-strip-types main.ts"
+  }
+}
